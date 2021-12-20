@@ -1,7 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
 import axios from 'axios'
 import { useState, useEffect} from 'react'
+import moment from 'moment';
+moment.locale('es');
 
 function App() {
 
@@ -16,13 +17,12 @@ function App() {
     })
        
   }, [])
-
-  console.log(heroes);
+  
 
   return (
     
     <div className="App">
-      <h1 className="card-title">Heróes de Marvel Enviame</h1> 
+      <h1 className="card-title">Marvel Enviame</h1> 
 
       {/* <div class="container"> */}
         <div className="row row-cols-1 row-cols-md-2 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 g4"> 
@@ -38,8 +38,7 @@ function App() {
                       <b>Descripcion:</b> {heroe.description}<br/>
                       <b>Url:</b>{heroe.thumbnail.path}<br/>
                       <b>Extension:</b> {heroe.thumbnail.extension}<br/>
-                      <b>Fecha:</b> {heroe.modified}<br/>
-
+                      <b>Fecha:</b> {moment(heroe.modified).format('YYYY-MM-DD')}<br/>
                       
                     </p>
                  
